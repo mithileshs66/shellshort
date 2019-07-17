@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+void shellsort(int arr[],int n)
+{
+    int i,j,k;
+    for(i=n/2;i>0;i=i/2)
+    {
+        for(j=i;j<n;j++)
+        {
+            for(k=j-i;k>=0;k=k-i)
+            {
+                if(arr[k+i]>=arr[k])
+                {
+                    break;
+                }
+                else
+                {
+                    swap(arr[k+i],arr[k]);
+                }
+            }
+        }
+    }
+}
+
+
+int main()
+{
+    int n,i;
+    cout<<"Enter the size of array\n";
+    cin>>n;
+    int arr[n];
+    cout<<"Enter the array\n";
+    for(i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    shellsort(arr,n);
+    cout<<"SHELL SORT\n";
+    for(i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
